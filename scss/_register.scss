@@ -1,0 +1,20 @@
+@charset "utf-8";
+.block-regiter-page{
+  position: relative;
+  .bg-title-center{
+    padding-top: 30px;
+  }
+}
+.block-bg-inner{
+  background: url(../images/bg-all.png) no-repeat right bottom $bgModal;
+  background-size: cover;
+  @include border-radius(10px);
+  padding: 15px;
+  .title-block{
+    @include fsz(14);
+    font-weight: bold;
+    border-left: 2px solid $white;
+    padding-left: 15px;
+    margin-bottom: 30px;
+  }
+}

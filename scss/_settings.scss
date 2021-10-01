@@ -1,0 +1,224 @@
+@charset "utf-8";
+@import "compass";
+$experimental-support-for-svg: true;
+
+//----------------------------------------------//
+// *Media Queries								//
+//----------------------------------------------//
+$bp_tab: 1024px; //tab
+$bp_sp: 767px; //sp
+
+@mixin mq($device,$val:null,$val2:null) {
+	@if $device == pc {
+	//pc
+		@media only screen and (min-width: $bp_tab + 1){@content;}
+		@media print {@content;}
+		.ie8 & {@content;}
+	}@else if $device == tab {
+	//tab
+		@media only screen and (min-width: $bp_sp + 1) and (max-width: $bp_tab){@content;}
+	}@else if $device == tab_l {
+	//tab_l
+		@media only screen and (min-width: ($bp_tab - $bp_sp) / 2 + $bp_sp + 1) and (max-width: $bp_tab){@content;}
+	}@else if $device == tab_s {
+	//tab_s
+		@media only screen and (min-width: $bp_sp + 1) and (max-width: ($bp_tab - $bp_sp) / 2 + $bp_sp){@content;}
+	}@else if $device == sp {
+	//sp
+		@media only screen and (max-width: $bp_sp){@content;}
+	}@else if $device == sp_l {
+	//sp_l
+		@media only screen and (min-width: ($bp_sp - 320) / 2 + 320+ 1) and (max-width: $bp_sp){@content;}
+	}@else if $device == sp_s {
+	//sp_s
+		@media only screen and (max-width: ($bp_sp - 320) / 2 + 320){@content;}
+	}@else if $device == pc_tab {
+	//pc & tab
+		@media only screen and (min-width: $bp_sp + 1){@content;}
+		@media print {@content;}
+		.ie8 & {@content;}
+	}@else if $device == tab_sp {
+	//tab & sp
+		@media only screen and (max-width: $bp_tab){@content;}
+	}@else if $device == min_w {
+	//max-width
+		@media only screen and (min-width: $val){@content;}
+		@media print {@content;}
+		.ie8 & {@content;}
+	}@else if $device == max_w {
+	//min-width
+		@media only screen and (max-width: $val){@content;}
+		@if $val > $bp_tab {
+			@media print {@content;}
+			.ie8 & {@content;}
+		}
+	}@else if $device == min_max_w {
+	//min-width ~ max-width
+		@media only screen and (min-width: $val) and (max-width: $val2){@content;}
+		@if $val2 > $bp_tab {
+			@media print {@content;}
+			.ie8 & {@content;}
+		}
+	}@else if $device == min_h {
+	//max-height
+		@media only screen and (min-height: $val){@content;}
+	}@else if $device == max_h {
+	//min-height
+		@media only screen and (max-height: $val){@content;}
+	}@else if $device == min_max_h {
+	//min-height ~ max-height
+		@media only screen and (min-height: $val) and (max-height: $val2){@content;}
+	}
+}
+
+
+//----------------------------------------------//
+// *Variable									//
+//----------------------------------------------//
+
+$columnWidth: 1024;
+$bgFooter: #022E38;
+$borderFooter: #024554;
+$bgColor:#1C5D72;
+$bgMenu:#00313D;
+$bgSecond:#D24C00;
+$bgMenuSelect: #0D4051;
+$border-line:#2C88A6;
+$secondColor:#F5B819;
+$bgCard: #0E4658;
+$bgModal: #114A60;
+$border-bottom: #003445;
+$bgDefault: #337790;
+
+$bgBody: #01131B;
+$primaryColor: #5B3D7E;
+$baseSize: 12;
+$baseColor: #FFF;
+$white: #FFF;
+$mainColor: #691777;
+
+
+$font: 'Lato', sans-serif;
+
+$textHelp: $white;
+$bgReset: #472B67;
+$bgSubmit: #660779;
+$bgPageActive: #A836BF;
+$clrNumber: #EB86FF;
+$bgBorder: #442154;
+$clrMoney: #FF5FDC;
+//----------------------------------------------//
+// *Placeholder									//
+//----------------------------------------------//
+
+// - baceWidth
+%bw {
+	max-width: $columnWidth + px;
+	margin: auto;
+	@include mq(tab_sp) {
+		width: 95%;
+	}
+}
+
+//  - clearFix
+%cf {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+
+//----------------------------------------------//
+// *Function									//
+//----------------------------------------------//
+
+// %wCon
+@function wCon($width,$parentWidth:$columnWidth) {
+	@return $width / $parentWidth * 100%;
+}
+
+
+//----------------------------------------------//
+// *mixin										//
+//----------------------------------------------//
+
+// フォントサイズ
+@mixin fsz($size:$baseSize,$parent:null){
+	$i: $size * (100 / $baseSize);
+
+	@if $parent == null {
+		font-size: ceil($i * 1%);
+	}@else {
+		font-size: ceil(100% * ($size / $parent));
+	}
+}
+
+// - choiceValue
+// @include cV(width,pc,tab~sp);
+@mixin cV($pro, $v1:0, $v2:0, $v3:null) {
+	#{$pro} : $v1;
+	@if $v3 == null {
+		@include mq(sp) {
+			#{$pro} : $v2;
+		}
+	}@else {
+		@include mq(tab) {
+			#{$pro} : $v2;
+		}
+		@include mq(sp) {
+			#{$pro} : $v3;
+		}
+	}
+}
+
+// @include hover {
+//		style
+// }
+@mixin hover() {
+	.mouse &:hover,
+	.touch &.touchstart {
+		@content;
+	}
+	.touch & {
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		&.touchend {
+			@include transition-delay(200ms);
+		}
+	}
+}
+
+@mixin cW($width) {
+	max-width: $width;
+	width: 95%;
+	margin: auto;
+}
+
+@mixin zoomImg($mag:140%,$cri:center) {
+	overflow: hidden;
+	img {
+		position: relative;
+		width: $mag;
+		max-width: none;
+		@if $cri == center {
+			margin-left: - ($mag - 100) / 2;
+		}
+		@if $cri == right {
+			margin-left: - ($mag - 100);
+		}
+	}
+}
+
+// @include reverseDecoration;
+@mixin reverseDecoration {
+	text-decoration: none !important;
+	@include hover {
+		text-decoration: underline !important;
+	}
+}
+
+@mixin gradient($c1:#000, $c2:#fff) {
+	@include background(linear-gradient($c1,$c2));
+	@include filter-gradient($c1,$c2);
+}
