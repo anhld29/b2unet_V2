@@ -721,15 +721,20 @@ footer .list-menu-footer li:nth-child(3) .menu-center a {
 }
 .input-inner-icon.form-input-money .form-control {
   background: none;
+  border: none;
   border-bottom: 1px solid #FFF;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
-  font-size: 167%;
+  font-size: 334%;
   padding: 0 15px 2px 30px;
+  line-height: 1;
 }
 .input-inner-icon.form-input-money .icon {
   left: 0;
+  width: 16px;
+  height: 16px;
+  top: 15px;
 }
 .input-inner-icon select {
   background: transparent;
@@ -738,8 +743,11 @@ footer .list-menu-footer li:nth-child(3) .menu-center a {
   outline: none;
   padding-right: 1em;
 }
+.input-inner-icon select:focus {
+  border: none;
+}
 .input-inner-icon select option {
-  color: #FFF;
+  color: #000;
 }
 
 .btn-default {
@@ -788,7 +796,7 @@ footer .list-menu-footer li:nth-child(3) .menu-center a {
 .page-block .list-page li a {
   padding: 6px 14px;
   display: block;
-  background: #5B3D7E;
+  background: #0E4658;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -801,7 +809,7 @@ footer .list-menu-footer li:nth-child(3) .menu-center a {
   margin-top: 5px;
 }
 .page-block .list-page li.page-active a {
-  background: #A836BF;
+  background: #022E38;
 }
 
 .btn-back-top {
@@ -939,6 +947,13 @@ footer .list-menu-footer li:nth-child(3) .menu-center a {
   font-weight: bold;
   text-transform: uppercase;
 }
+.header-page.header-large {
+  min-height: 160px;
+}
+.header-page.header-large h1 {
+  top: 40%;
+  transform: translate(-50%, -40%);
+}
 
 .block-regiter-page {
   position: relative;
@@ -1037,4 +1052,375 @@ footer .list-menu-footer li:nth-child(3) .menu-center a {
 }
 .modal .block-download .btn-download span {
   display: block;
+}
+
+.modal-open .modal {
+  overflow-y: hidden;
+}
+
+.modal-open #page {
+  height: 100%;
+  overflow: hidden;
+  *zoom: 1;
+}
+
+.deposit-page-form {
+  position: relative;
+  margin-top: -40px;
+}
+.deposit-page-form .text-center {
+  font-weight: 400;
+}
+.deposit-page-form .block-money-hold {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #0E4658;
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+  *zoom: 1;
+  margin-bottom: 15px;
+}
+.deposit-page-form .block-money-hold .icon-wallet {
+  width: 64px;
+  height: 54px;
+  margin-left: 0;
+  margin-right: 1em;
+}
+.deposit-page-form .block-money-hold h3 {
+  font-size: 117%;
+  text-transform: uppercase;
+  transform: rotate(-90deg);
+  color: #D9D9D9;
+  font-weight: 500;
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  margin-top: -15px;
+}
+.deposit-page-form .block-money-hold:before {
+  content: "";
+  background: url(../images/bg-casino.png) no-repeat center center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+}
+.deposit-page-form .block-money-hold .block-money-number {
+  max-width: calc(100% - 100px);
+}
+.deposit-page-form .block-money-hold .block-money-number .sub-title {
+  text-align: center;
+  font-size: 109%;
+}
+.deposit-page-form .block-money-hold .block-money-number .number {
+  font-weight: bold;
+  font-size: 209%;
+  line-height: 30px;
+  color: #F5B819;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+}
+.deposit-page-form .list-number-input {
+  margin-bottom: 40px;
+  margin-top: 30px;
+  overflow: hidden;
+  *zoom: 1;
+}
+.deposit-page-form .list-number-input li {
+  background: #0C5A73;
+  color: #FFF;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  overflow: hidden;
+  *zoom: 1;
+  margin-right: 5px;
+}
+.deposit-page-form .list-number-input li:last-child {
+  margin-right: 0;
+}
+.deposit-page-form .list-number-input [type="radio"]:checked, .deposit-page-form .list-number-input [type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+.deposit-page-form .list-number-input [type="radio"]:checked + label, .deposit-page-form .list-number-input [type="radio"]:not(:checked) + label {
+  position: relative;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #FFF;
+  padding: 7px 12px;
+  min-width: 50px;
+  font-size: 117%;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0;
+}
+.deposit-page-form .list-number-input [type="radio"]:checked + label:after, .deposit-page-form .list-number-input [type="radio"]:not(:checked) + label:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #00384A;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  z-index: 0;
+}
+.deposit-page-form .list-number-input [type="radio"]:checked + label span, .deposit-page-form .list-number-input [type="radio"]:not(:checked) + label span {
+  position: relative;
+  z-index: 1;
+}
+.deposit-page-form .list-number-input [type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+.deposit-page-form .list-number-input [type="radio"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.deposit-page-form .list-number-input .label-inner {
+  position: relative;
+  z-index: 1;
+}
+.deposit-page-form .list-number-input.list-check-method {
+  justify-content: space-between;
+}
+.deposit-page-form .list-number-input.list-check-method li {
+  width: 33.3333%;
+  text-align: center;
+}
+.deposit-page-form .list-number-input.list-check-method li .icon {
+  width: 62px;
+  height: 35px;
+}
+.deposit-page-form .list-number-input.list-check-method [type="radio"]:checked + label, .deposit-page-form .list-number-input.list-check-method [type="radio"]:not(:checked) + label {
+  font-size: 84%;
+  padding: 7px 0;
+  text-transform: none;
+}
+.deposit-page-form .list-number-input.list-number-money {
+  overflow: visible;
+  margin: 60px 10px 40px;
+}
+.deposit-page-form .list-number-input.list-number-money ul {
+  position: relative;
+}
+.deposit-page-form .list-number-input.list-number-money ul:before {
+  content: "";
+  height: 3px;
+  width: 100%;
+  background: #2C88A6;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 0;
+  z-index: 0;
+}
+.deposit-page-form .list-number-input.list-number-money ul li {
+  width: 20px;
+  height: 20px;
+  margin-right: 25px;
+  overflow: visible;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #2C88A6;
+  position: relative;
+}
+.deposit-page-form .list-number-input.list-number-money ul li label {
+  min-width: inherit !important;
+}
+.deposit-page-form .list-number-input.list-number-money ul li label span {
+  position: absolute !important;
+  top: -20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: none;
+}
+.deposit-page-form .list-number-input.list-number-money ul li:last-child {
+  margin-right: 0;
+}
+.deposit-page-form .list-number-input.list-number-money ul li [type="radio"]:checked + label:after {
+  width: 22px;
+  height: 22px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid #FFF;
+}
+.deposit-page-form .block-bg-inner {
+  padding: 15px 10px;
+}
+
+.transter-game-active {
+  background: #0E4658;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  padding: 15px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.transter-game-active .box-images {
+  min-width: 110px;
+  max-width: 120px;
+}
+.transter-game-active .transfer-game-info {
+  width: 100%;
+}
+.transter-game-active .transfer-game-info .transfer-item {
+  position: relative;
+}
+.transter-game-active .transfer-game-info .transfer-item span {
+  font-size: 100%;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 14px;
+  color: #AEAEAE;
+}
+.transter-game-active .transfer-game-info .transfer-item .text {
+  font-size: 134%;
+  color: #FFF;
+  margin-bottom: 5px;
+}
+.transter-game-active .transfer-game-info .transfer-item .btn-edit {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  z-index: 1;
+}
+.transter-game-active .transfer-game-info .transfer-item .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.transfer-game-list {
+  overflow: hidden;
+  *zoom: 1;
+  overflow-x: auto;
+  margin-bottom: 40px;
+}
+.transfer-game-list ul.list-game {
+  display: flex;
+  white-space: nowrap;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.transfer-game-list ul.list-game li {
+  margin-left: 15px;
+  background: #0E4658;
+  border: 1px solid #0E4658;
+  min-width: 93px;
+  height: 55px;
+}
+.transfer-game-list ul.list-game li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.transfer-game-list ul.list-game li.active {
+  background: #0D4051;
+  border-color: #2C88A6;
+}
+
+/* -----------------------------------------------------------
+  #list-history
+----------------------------------------------------------- */
+.title-page {
+  font-weight: bold;
+  font-size: 134%;
+  margin-bottom: 10px;
+}
+
+.item-history {
+  overflow: hidden;
+  *zoom: 1;
+}
+.item-history:not(:last-child) {
+  border-bottom: 1px solid #146078;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+.item-history .img {
+  width: 51px;
+  height: 51px;
+  background: #FFF;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+  position: relative;
+}
+.item-history .img img {
+  filter: invert(0.8) sepia(1) saturate(5) hue-rotate(175deg);
+  width: 34px;
+  height: 34px;
+}
+.item-history .img:before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: -5px;
+  bottom: -7px;
+  background: url(../images/icon-status-success.svg) no-repeat center center;
+}
+.item-history .col-right {
+  text-align: right;
+}
+.item-history .money-number {
+  font-size: 134%;
+  font-weight: bold;
+  line-height: 1;
+}
+.item-history .title-history {
+  font-size: 109%;
+}
+.item-history .text-transaction {
+  color: #CCCCCC;
+  font-size: 84%;
+}
+.item-history .time-transaction {
+  color: #FFF;
+  font-size: 84%;
+}
+.item-history .btn-default {
+  padding: 0;
+  background: none;
+  margin-right: 0;
+}
+.item-history .btn-default .icon {
+  width: 14px;
+  height: 14px;
+}
+.item-history.pedding .money-status {
+  color: #F5B819;
+}
+.item-history.pedding .img:before {
+  background: url(../images/icon-status-pending.svg) no-repeat center center;
+}
+.item-history.rejected .money-status {
+  color: #D24C00;
+}
+.item-history.rejected .img:before {
+  background: url(../images/icon-status-rejected.svg) no-repeat center center;
+}
+.item-history.success .money-status {
+  color: #56A923;
 }

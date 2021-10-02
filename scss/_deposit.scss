@@ -1,19 +1,21 @@
 @charset "utf-8";
 .deposit-page-form{
+  position: relative;
+  margin-top: -40px;
   .text-center{
     font-weight: 400;
   }
   .block-money-hold{
-    background: linear-gradient(180deg, #7922A5 0%, #47155F 100%);
     @include border-radius(10px);
-    padding: 30px 15px;
+    background: $bgCard;
+    padding: 15px;
     position: relative;
     @include clearfix;
     margin-bottom: 15px;
     .icon-wallet{
-      width: 74px;
-      height: 66px;
-      margin-left: 1em;
+      width: 64px;
+      height: 54px;
+      margin-left: 0;
       margin-right: 1em;
     }
     h3{
@@ -41,13 +43,13 @@
       max-width: calc(100% - 100px);
       .sub-title{
         text-align: center;
-        @include fsz(14);
+        @include fsz(13);
       }
       .number{
         font-weight: bold;
-        @include fsz(34);
-        line-height: 41px;
-        color: $clrMoney;
+        @include fsz(25);
+        line-height: 30px;
+        color: $secondColor;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -60,7 +62,7 @@
     margin-top: 30px;
     @include clearfix;
     li{
-      background:$primaryColor ;
+      background:$bgcheckInput ;
       color: $white;
       @include border-radius(4px);
       @include clearfix;
@@ -92,7 +94,7 @@
         content: '';
         width: 100%;
         height: 100%;
-        background: $mainColor;
+        background: $bgCheckInputActive;
         position: absolute;
         top: 0;
         left: 0;
@@ -134,13 +136,60 @@
         text-transform: none;
       }
     }
+    &.list-number-money{
+      overflow: visible;
+      margin:60px 10px 40px;
+      ul{
+        position: relative;
+        &:before{
+          content: "";
+          height: 3px;
+          width: 100%;
+          background: $border-line;
+          position: absolute;
+          top: 50%;
+          transform: translate(0,-50%);
+          left: 0;
+          z-index: 0;
+        }
+        li{
+          width: 20px;
+          height: 20px;
+          margin-right: 25px;
+          overflow: visible;
+          @include border-radius(50%);
+          background: $border-line;
+          position: relative;
+          label{
+            min-width: inherit !important;
+            span{
+              position: absolute !important;
+              top: -20px;
+              left: 50%;
+              transform: translate(-50%,-50%);
+              text-transform: none;
+            }
+          }
+          &:last-child{
+            margin-right: 0;
+          }
+          [type="radio"]:checked + label:after {
+            width: 22px;
+            height: 22px;
+            @include border-radius(50%);
+            border: 2px solid $white;
+          }
+        }
+      }
+      
+    }
   }
   .block-bg-inner{
     padding: 15px 10px;
   }
 }
 .transter-game-active{
-  background: $primaryColor;
+  background: $bgCard;
   @include border-radius(8px);
   padding: 15px;
   align-items: center;
@@ -189,8 +238,8 @@
     margin-bottom: 15px;
     li{
       margin-left: 15px;
-      background: #371A54;
-      border: 1px solid #623D70;
+      background: $bgCard;
+      border: 1px solid $bgCard;
       min-width: 93px;
       height: 55px;
       a{
@@ -199,67 +248,104 @@
         align-items: center;
         height: 100%;
       }
+      &.active{
+        background: $bgMenuSelect;
+        border-color: $border-line;
+      }
     }
   }
 }
-.list-history{
+
+/* -----------------------------------------------------------
+  #list-history
+----------------------------------------------------------- */
+.title-page{
+  font-weight: bold;
+  @include fsz(16);
+  margin-bottom: 10px;
+}
+.item-history{
   @include clearfix;
-  li{
-    background: $primaryColor;
-    @include border-radius(4px);
-    padding: 15px 15px 15px 25px;
-    @include fsz(12);
-    position: relative;
-    @include clearfix;
+  &:not(:last-child){
+    border-bottom: 1px solid $borderHistory;
     margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+  .img{
+    width: 51px;
+    height: 51px;
+    background: $white;
+    @include border-radius(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+    position: relative;
+    img{
+      filter: invert(.8) sepia(1) saturate(5) hue-rotate(175deg);
+      width: 34px;
+      height: 34px;
+    }
     &:before{
       content: "";
-      width: 8px;
-      height: 100%;
-      left: 0;
-      top: 0;
+      width: 15px;
+      height: 15px;
       position: absolute;
-      background:red;
+      right: -5px;
+      bottom: -7px;
+      background: url(../images/icon-status-success.svg) no-repeat center center;
     }
-    .title{
-      font-weight: bold;
-      margin-bottom: 5px;
+  }
+  .col-right{
+    text-align: right;
+  }
+  .money-number{
+    @include fsz(16);
+    font-weight: bold;
+    line-height: 1;
+  }
+  .title-history{
+    @include fsz(13);
+  }
+  .text-transaction{
+    color: #CCCCCC;
+    @include fsz(10);
+  }
+  .time-transaction{
+    color: $white;
+    @include fsz(10);
+  }
+  .btn-default{
+    padding: 0;
+    background: none;
+    margin-right: 0;
+    .icon{
+      width: 14px;
+      height: 14px;
     }
-    .transaction{
-      @include fsz(10);
-      line-height: 10px;
-      color: #9A89AD;
-      margin-bottom: 5px;
-      min-height: 1em;
+  }
+  &.pedding{
+    .money-status{
+      color: $secondColor;
     }
-    .icon-delete{
-      width: 20px;
-      height: 24px;
-      margin-right: 0;
-      margin-top: 10px;
+    .img:before{
+      background: url(../images/icon-status-pending.svg) no-repeat center center;
     }
-    &.success{
+  }
+  &.rejected{
+    .money-status{
+      color: $bgSecond;
+    }
+    .img{
       &:before{
-        background:#56A923;
+        background: url(../images/icon-status-rejected.svg) no-repeat center center;
       }
     }
-    &.pending:before{
-      background:#F79E44;
+  }
+  &.success{
+    .money-status{
+      color: $textSuccess;
     }
-    &.fail:before{
-      background:#E34949;
-    }
-    .comment{
-      color: #9A89AD;
-      .icon{
-        width: 16px;
-        height: 16px;
-        margin-left: 0;
-        margin-right: 0px;
-        display: inline-block;
-        vertical-align: middle;
-        margin-top: 3px;
-      }
-    }
+
   }
 }

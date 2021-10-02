@@ -115,4 +115,11 @@
     font-weight: bold;
     text-transform: uppercase;
   }
+  &.header-large{
+    min-height: 160px;
+    h1{
+      top: 40%;
+      transform: translate(-50%,-40%);
+    }
+  }
 }

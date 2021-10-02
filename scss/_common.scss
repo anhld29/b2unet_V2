@@ -615,13 +615,18 @@ footer{
     margin:15px auto;
     .form-control{
       background: none;
+      border: none;
       border-bottom: 1px solid $white;
       @include border-radius(0);
-      @include fsz(20);
+      @include fsz(40);
       padding: 0 15px 2px 30px;
+      line-height: 1;
     }
     .icon{
       left: 0;
+      width: 16px;
+      height: 16px;
+      top: 15px;
     }
   }
   select{
@@ -630,8 +635,11 @@ footer{
     border: none;
     outline: none;
     padding-right: 1em;
+    &:focus{
+      border: none;
+    }
     option{
-      color: $white;
+      color: #000;
     }
   }
 }
@@ -673,7 +681,7 @@ footer{
       a{
         padding: 6px 14px;
         display: block;
-        background: $primaryColor;
+        background: $bgCard;
         @include border-radius(2px);
         text-decoration: none;
         @include fsz(14);
@@ -685,7 +693,7 @@ footer{
       }
       &.page-active{
         a{
-          background:$bgPageActive
+          background:$bgFooter;
         }
       }
     }

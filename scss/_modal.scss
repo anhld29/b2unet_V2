@@ -79,10 +79,10 @@
   }
 
 }
-// .modal-open .modal{
-//   overflow-y: hidden;
-// }
-// .modal-open #page{
-//   height: 100%;
-//   @include clearfix;
-// }
+.modal-open .modal{
+  overflow-y: hidden;
+}
+.modal-open #page{
+  height: 100%;
+  @include clearfix;
+}
