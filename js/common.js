@@ -29,7 +29,8 @@ $(function(){
 		speed: 1000,
 		slidesToShow: 1,
 		centerMode: true,
-		variableWidth: true
+		variableWidth: true,
+		centerPadding: '40px',
 	});
 
 	var menu = new MmenuLight(

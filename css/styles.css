@@ -845,6 +845,7 @@ footer .list-menu-footer li:nth-child(3) .menu-center a {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
+  max-width: 330px;
 }
 .slider-home .slick-dots {
   position: absolute;
