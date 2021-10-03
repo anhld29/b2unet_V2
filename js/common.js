@@ -28,8 +28,8 @@ $(function(){
 		infinite: true,
 		speed: 1000,
 		slidesToShow: 1,
+		// variableWidth: true,
 		centerMode: true,
-		variableWidth: true,
 		centerPadding: '40px',
 	});
 
